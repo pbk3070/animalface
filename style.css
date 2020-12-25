@@ -1,0 +1,302 @@
+body {
+	font-family: 'Jua', sans-serif;
+	background-image: url('image/background.png');
+	background-size: cover;
+	background-color: #ffffff;
+	box-sizing: border-box;
+	color: #35465d;
+	font-size: 1.3rem;
+}
+
+.file-upload {
+	padding: 3% 3%;
+	margin: 0 auto;
+	border-radius: 10px;
+	border: solid 1.5px #f6f7fa;
+	background-image: url('image/uploadback.png');
+	background-size: cover;
+	margin-bottom: 20px;
+}
+
+.file-upload-btn {
+	width: 100%;
+	margin: 0;
+	color: #fff;
+	background: #1fb264;
+	border: none;
+	padding: 10px;
+	border-radius: 4px;
+	border-bottom: 4px solid #15824b;
+	transition: all 0.2s ease;
+	outline: none;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.file-upload-btn:hover {
+	background: #1aa059;
+	color: #ffffff;
+	transition: all 0.2s ease;
+	cursor: pointer;
+}
+
+.file-upload-btn:active {
+	border: 0;
+	transition: all 0.2s ease;
+}
+
+.file-upload-content {
+	display: none;
+	text-align: center;
+}
+
+.file-upload-input {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	outline: none;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.image-upload-wrap {
+	width: 60%;
+	margin: 0 auto;
+	position: relative;
+	object-fit: contain;
+	border-radius: 10px;
+	border: dashed 1.5px #35465d;
+	background-color: #ffffff;
+}
+
+.image-dropping,
+.image-upload-wrap:hover {
+	background-color: #35465d;
+	border: 1.5px dashed #ffffff;
+}
+
+.image-title-wrap {
+	padding: 0 15px 15px 15px;
+	color: #222;
+}
+
+.drag-text {
+	text-align: center;
+}
+
+.drag-text h3 {
+	font-weight: 100;
+	text-transform: uppercase;
+	color: #15824b;
+	padding: 60px 0;
+}
+
+.file-upload-image {
+	max-height: 60%;
+	max-width: 60%;
+	margin: auto;
+	padding: 10px;
+}
+
+.remove-image {
+	width: 200px;
+	margin: 0;
+	color: #fff;
+	background: #cd4535;
+	border: none;
+	padding: 10px;
+	border-radius: 4px;
+	border-bottom: 4px solid #b02818;
+	transition: all 0.2s ease;
+	outline: none;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.remove-image:hover {
+	background: #c13b2a;
+	color: #ffffff;
+	transition: all 0.2s ease;
+	cursor: pointer;
+}
+
+.remove-image:active {
+	border: 0;
+	transition: all 0.2s ease;
+}
+.nav-distance {
+	padding: 1% 7.7%;
+}
+.navbar-light .navbar-brand {
+	font-family: 'Jua', sans-serif;
+	line-height: 1.68;
+	text-align: left;
+	color: #35465d;
+}
+
+.navbar-light .navbar-toggler {
+	border-color: #ffffff;
+}
+
+.title {
+	font-family: 'Jua', sans-serif;
+	line-height: 1.67;
+	text-align: center;
+	color: #35465d;
+}
+
+.subtitle {
+	font-family: 'Jua', sans-serif;
+	line-height: 1.53;
+	text-align: center;
+	color: #35465d;
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+	html {
+		font-size: 10px;
+	}
+	.navbar-brand {
+		font-size: 2rem;
+	}
+}
+
+.youtube-link {
+	font-family: 'Jua', sans-serif;
+	font-size: 1.5rem;
+	line-height: 1.71;
+	text-align: center;
+	color: #f73737;
+	text-decoration: underline;
+}
+
+.youtube-link:hover {
+	font-family: 'Jua', sans-serif;
+	font-size: 1.5rem;
+	line-height: 1.71;
+	text-align: center;
+	color: #f73737;
+	text-decoration: underline;
+}
+
+.youtube-icon {
+	width: 8%;
+}
+.upload {
+	width: 50%;
+}
+
+.upload-text {
+	width: 80%;
+	margin: 0 auto;
+	font-family: 'Jua', sans-serif;
+	font-size: 2.5rem;
+	line-height: 1.53;
+	text-align: center;
+	color: #35465d;
+}
+.progress {
+	width: 50%;
+	height: 2rem;
+}
+#label-container {
+	width: 80%;
+	margin: 0 auto;
+}
+#loading {
+	display: none;
+}
+.try-again-btn {
+	border-radius: 40px;
+	border: solid 1.5px #35465d;
+	background-color: #35465d;
+}
+.try-again-text {
+	display: block;
+	font-size: 1.5rem;
+	text-align: center;
+	color: #ffffff;
+	padding: 4px 15px;
+}
+
+.animal-label {
+	padding-left: 20%;
+	height: 2rem;
+	text-align: left;
+}
+.name-input {
+	width: 30%;
+	margin: auto;
+}
+.form-control {
+	height: 4rem;
+}
+
+.be {
+	background-image: url('image/be.png');
+	background-size: cover;
+}
+.bul {
+	background-image: url('image/bul.png');
+	background-size: cover;
+}
+.chi {
+	background-image: url('image/chi.png');
+	background-size: cover;
+}
+.dak {
+	background-image: url('image/dak.png');
+	background-size: cover;
+}
+.fo {
+	background-image: url('image/fo.png');
+	background-size: cover;
+}
+.fu {
+	background-image: url('image/fu.png');
+	background-size: cover;
+}
+.jin {
+	background-image: url('image/jin.png');
+	background-size: cover;
+}
+.mar {
+	background-image: url('image/mar.png');
+	background-size: cover;
+}
+.re {
+	background-image: url('image/re.png');
+	background-size: cover;
+}
+.s {
+	background-image: url('image/s.png');
+	background-size: cover;
+}
+.siba {
+	background-image: url('image/siba.png');
+	background-size: cover;
+}
+.sichu {
+	background-image: url('image/sichu.png');
+	background-size: cover;
+}
+.well {
+	background-image: url('image/well.png');
+	background-size: cover;
+}
+.yo {
+	background-image: url('image/yo.png');
+	background-size: cover;
+}
+
+.banner {
+	width:58%;
+	background-image: url('image/banner.jpg');
+	background-size:cover;
+}
+.upload2 {
+	width:100%
+}
