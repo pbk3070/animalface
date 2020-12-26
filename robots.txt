@@ -1,2 +1,3 @@
 User-agent: *
 Allow:/
+Sitemap: https://mungsangtest.com/sitemap.xml
