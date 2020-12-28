@@ -117,10 +117,11 @@
 			src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
 		></script>
 		<div class="container file-upload">
-			<script src="https://ads-partners.coupang.com/g.js"></script>
-			<script>
-				new PartnersCoupang.G({ id: 393130 });
-			</script>
+			<div class="container">
+				<a href="https://dog-handplz.com/">
+					<img src="image/banner4.png" class="pt-1 pb-3 upload2" />
+				</a>
+			</div>
 			<div class="image-upload-wrap">
 				<input
 					class="file-upload-input"
@@ -145,39 +146,58 @@
 				<img class="file-upload-image" id="face-image" src="#" alt="your image" />
 				<div id="loading" class="animated bounce">
 					<div class="spinner-border" role="status"></div>
-					<p class="text-center">AI가 멍상을 분석중입니다.</p>
+					<p class="text-center">⏳AI가 멍상을 분석중입니다🔍</p>
 				</div>
-				<p class="result-message"></p>
-				<div id="label-container"></div>
-				<div class="result-graph"></div>
-				<div class="pt-3 image-title-wrap">
-					<!-- Go to www.addthis.com/dashboard to customize your tools -->
-					<script
-						type="text/javascript"
-						src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5fe5618468353e93"
-					></script>
-
-					<!-- Go to www.addthis.com/dashboard to customize your tools -->
-					<div class="addthis_inline_share_toolbox"></div>
-					<script src="https://ads-partners.coupang.com/g.js"></script>
-					<script>
-						new PartnersCoupang.G({ id: 393130 });
-					</script>
+				<div>
+					<div class="coupang-result" style="display: none;">
+						<script src="https://ads-partners.coupang.com/g.js"></script>
+						<script>
+							new PartnersCoupang.G({
+								id: 393130,
+								template: 'carousel',
+								trackingCode: 'AF4930529',
+								width: '100%',
+								height: '130',
+							});
+						</script>
+					</div>
 					<button
 						type="button p-2"
-						class="mt-3 try-again-btn"
-						onclick="window.location.reload();"
+						class="mt-3 try-again-btn result-btn"
+						onclick="$('.result-hide').show();$('.result-btn').hide(); $('#stickyContainer').show();"
+						style="display: None;"
 					>
-						<span class="try-again-text">다른 사진으로 재시도</span>
+						<span class="try-again-text">💡결과 확인하기✨</span>
 					</button>
-					<button class="image-title" style='display:None;'></button>
+				</div>
+				<div class="result-hide" style="display: None;">
+					<p class="result-message"></p>
+					<div id="label-container"></div>
+					<div class="result-graph"></div>
+					<div class="pt-3 image-title-wrap">
+						<!-- Go to www.addthis.com/dashboard to customize your tools -->
+						<script
+							type="text/javascript"
+							src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5fe5618468353e93"
+						></script>
+
+						<!-- Go to www.addthis.com/dashboard to customize your tools -->
+						<div class="addthis_inline_share_toolbox"></div>
+						<script src="https://ads-partners.coupang.com/g.js"></script>
+						<script>
+							new PartnersCoupang.G({ id: 393130 });
+						</script>
+						<button
+							type="button p-2"
+							class="mt-3 try-again-btn"
+							onclick="window.location.reload();"
+						>
+							<span class="try-again-text">다른 사진으로 재시도</span>
+						</button>
+						<button class="image-title" style="display: None;"></button>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="container">
-			<a href="https://dog-handplz.com/">
-				<img src="image/banner4.png" class="pt-1 pb-3 upload2" />
-			</a>
 		</div>
 		<div class="container">
 			<a href="https://dog-handplz.com/">
@@ -239,6 +259,7 @@
 
 					reader.onload = function (e) {
 						$('.image-upload-wrap').hide();
+						window.scrollTo({ top: 400, behavior: 'smooth' });
 						$('#loading').show();
 						$('.file-upload-image').attr('src', e.target.result);
 						$('.file-upload-content').show();
@@ -267,6 +288,15 @@
 						console.log('hello');
 						predict();
 						$('#loading').hide();
+						window.scrollTo({ top: 400, behavior: 'smooth' });
+						setTimeout(function () {
+						$('.result-btn').show();
+							}, 100);
+						// setTimeout(function () {
+							// $('#stickyContainer').show(); 팝업 !
+							// $('.coupang-result').show();
+						// }, 100);
+
 						$('.result-graph').show();
 						$('.file-upload').css('background-color', ' #f6f7fa');
 					});
@@ -378,13 +408,16 @@
 							'활발하고 명량하여 누구와도 잘 지낼 만큼 성격이 좋습니다. 사교성이 매우 좋아 산책중에 다른개를 만나면 특유의 친화력으로 반갑다고 상대 강아지 주변을 우다다 하기도 합니다.온순하고 지능이 높아 훈련을 잘 받아들이며, 적응력이 뛰어나고 주인에게 깊은 애착을 갖습니다.';
 					} else if ($('.image-title').text() == '2') {
 						resultMessage2 = '" 귀여운건 외모뿐..? "';
-						resultMessage3 = '복슬복슬 귀여운 솜사탕 같은 외모를 가지고있지만, 명랑함이 지나쳐 비숑타임을 가지고 있습니다. 특유의 친화력을 바탕으로 에너지를 소모하기전까진 잠을자지않는다는...!!';
+						resultMessage3 =
+							'복슬복슬 귀여운 솜사탕 같은 외모를 가지고있지만, 명랑함이 지나쳐 비숑타임을 가지고 있습니다. 특유의 친화력을 바탕으로 에너지를 소모하기전까진 잠을자지않는다는...!!';
 					} else if ($('.image-title').text() == '3') {
 						resultMessage2 = '" 헬멧 천사 "';
-						resultMessage3 = '빵빵한 헬멧은 쓴 천사같은 외모를 가졌지만 은근 까칠한 귀족스타일!...기분이 좋을땐 한 없이 천사지만 기분이 안좋다면 어서 도망을....';
+						resultMessage3 =
+							'빵빵한 헬멧은 쓴 천사같은 외모를 가졌지만 은근 까칠한 귀족스타일!...기분이 좋을땐 한 없이 천사지만 기분이 안좋다면 어서 도망을....';
 					} else if ($('.image-title').text() == '4') {
 						resultMessage2 = '" 배달의민족 "';
-						resultMessage3 = '라이더처럼 헬멧을 쓰고 주인을 발자취만 쫄쫄 따라다녀요. 간식하나면 할 줄아는 개인기는 다 보여주는 아이같은 순수함을 가졌어요.';
+						resultMessage3 =
+							'라이더처럼 헬멧을 쓰고 주인을 발자취만 쫄쫄 따라다녀요. 간식하나면 할 줄아는 개인기는 다 보여주는 아이같은 순수함을 가졌어요.';
 					} else if ($('.image-title').text() == '5') {
 						resultMessage2 = '" 칙칙폭폭 폭주기관차 "';
 						resultMessage3 =
@@ -397,13 +430,16 @@
 							'항상 호기심과 의욕이 가득한 눈빛을 보내며, 사람들과 함께 하는 걸 좋아하는 명랑한 장난꾸러기입니다. 먹성이 좋기 때문에 자주 산책을 시켜주지 않으면 쉽게 비만에 걸릴 위험이 있어 관리가 필요합니다.';
 					} else if ($('.image-title').text() == '2') {
 						resultMessage2 = '" 작은 탱크 "';
-						resultMessage3 = ' 불독의 피를 이어받았지만 매우 차분하고 침착한편 입니다. 잘 짖지 않는편이고, 흥분하면 "킁컁컁" 숨소리가 나는게 특징 입니다.';
+						resultMessage3 =
+							' 불독의 피를 이어받았지만 매우 차분하고 침착한편 입니다. 잘 짖지 않는편이고, 흥분하면 "킁컁컁" 숨소리가 나는게 특징 입니다.';
 					} else if ($('.image-title').text() == '3') {
 						resultMessage2 = '" 소심한 깡패 "';
-						resultMessage3 = '주름때문에 성격이 있어보이지만 현실은 쫄보!...주인에게만 강인하며 다른 강아지를 만나면 숨기 바빠요! 그럴땐 의지할 수 있게 잠시 걸음을 멈춰서 지켜봐주세요. ';
+						resultMessage3 =
+							'주름때문에 성격이 있어보이지만 현실은 쫄보!...주인에게만 강인하며 다른 강아지를 만나면 숨기 바빠요! 그럴땐 의지할 수 있게 잠시 걸음을 멈춰서 지켜봐주세요. ';
 					} else if ($('.image-title').text() == '4') {
 						resultMessage2 = '" 연기자 "';
-						resultMessage3 = '원하는 것을 얻고자 할때는 영혼을 팔아 연기를 합니다. 그 연기력은 사람뿐만 아니라 타 강아지까지 홀려버리는 명품 연기를 보여줍니다.';
+						resultMessage3 =
+							'원하는 것을 얻고자 할때는 영혼을 팔아 연기를 합니다. 그 연기력은 사람뿐만 아니라 타 강아지까지 홀려버리는 명품 연기를 보여줍니다.';
 					} else if ($('.image-title').text() == '5') {
 						resultMessage2 = '" 사랑스런 장난꾸러기 "';
 						resultMessage3 =
@@ -416,13 +452,16 @@
 							'작은 체구에도 불구하고 용감하고 겁이 없습니다.애교가 많고, 질투심이 많은 편이며 주인이 다른 사람이나 강아지와 친하게 지내면 짖기도 합니다.';
 					} else if ($('.image-title').text() == '2') {
 						resultMessage2 = '" 작은 거인 "';
-						resultMessage3 = '보기와는 다르게 충성심도 높고, 자립심이 강한 아이입니다. 때문에 사교성이 부족한 편 입니다.';
+						resultMessage3 =
+							'보기와는 다르게 충성심도 높고, 자립심이 강한 아이입니다. 때문에 사교성이 부족한 편 입니다.';
 					} else if ($('.image-title').text() == '3') {
 						resultMessage2 = '" 기회주의자 "';
-						resultMessage3 = '크고 동그란 눈으로 호시탐탐 간식을 노리고 있습니다. 분위기 파악이 매우 빠르며 이득을 볼 게 있다면 한 없이 재롱을 부려요. 하지만 불리할땐 눈에서 억울함이 철철!...';
+						resultMessage3 =
+							'크고 동그란 눈으로 호시탐탐 간식을 노리고 있습니다. 분위기 파악이 매우 빠르며 이득을 볼 게 있다면 한 없이 재롱을 부려요. 하지만 불리할땐 눈에서 억울함이 철철!...';
 					} else if ($('.image-title').text() == '4') {
 						resultMessage2 = '" 배구선수 "';
-						resultMessage3 = '손을 자유자재로 잘 다뤄요. 간식을 먹을 때도 손으로 잘 지탱합니다. 주인이 없을땐 리모콘도 조정한다는....! ';
+						resultMessage3 =
+							'손을 자유자재로 잘 다뤄요. 간식을 먹을 때도 손으로 잘 지탱합니다. 주인이 없을땐 리모콘도 조정한다는....! ';
 					} else if ($('.image-title').text() == '5') {
 						resultMessage2 = '" 작은고추가 맵다 "';
 						resultMessage3 =
@@ -435,13 +474,16 @@
 							'명량하고 장난스러운 성격을 가지고 있습니다. 또한, 활동하는 것을 좋아하며 주인의 말을 잘 이해할 만큼 영리하기 때문에 좋은 친구가 되어주곤 합니다.외로움을 많이 타기 때문에, 주인이나 친구가 없으면 서글피 울기도 합니다. 낯선사람들에게 공격적인 모습을 보이거나 주인에게도 고집을 부리곤 합니다.';
 					} else if ($('.image-title').text() == '2') {
 						resultMessage2 = '" 짧은다리 사냥꾼 "';
-						resultMessage3 = '3대 지랄견에 걸맞을 정도로 사냥꾼 출신으로써 넘치는 에너지를 보여줍니다. 하지만 애교가 만고 아이와 같은 면아 주인 껌딱지일 가능성이 높습니다.';
+						resultMessage3 =
+							'3대 지랄견에 걸맞을 정도로 사냥꾼 출신으로써 넘치는 에너지를 보여줍니다. 하지만 애교가 만고 아이와 같은 면아 주인 껌딱지일 가능성이 높습니다.';
 					} else if ($('.image-title').text() == '3') {
 						resultMessage2 = '" 주인파괴견 "';
-						resultMessage3 = '주인의 재산을 파괴시키는 재능이 타고난 아이. 한눈을 팔면 언제든 주인의 지갑을 노릴 수 있습니다. 오로지 주인의 관심만이 아이를 멈출 수 있습니다.';
+						resultMessage3 =
+							'주인의 재산을 파괴시키는 재능이 타고난 아이. 한눈을 팔면 언제든 주인의 지갑을 노릴 수 있습니다. 오로지 주인의 관심만이 아이를 멈출 수 있습니다.';
 					} else if ($('.image-title').text() == '4') {
 						resultMessage2 = '" 우리집 일진 "';
-						resultMessage3 = '주인앞에선 쎈척을 하지만 낯선 사람이나 강아지를 보면 꼬리를 말고 눈치보기 바쁩니다. 체면 구기는 것을 아주 싫어하기 때문에 모른척 넘어가주세요.';
+						resultMessage3 =
+							'주인앞에선 쎈척을 하지만 낯선 사람이나 강아지를 보면 꼬리를 말고 눈치보기 바쁩니다. 체면 구기는 것을 아주 싫어하기 때문에 모른척 넘어가주세요.';
 					} else if ($('.image-title').text() == '5') {
 						resultMessage2 = '" 천방지축 사고뭉치 "';
 						resultMessage3 =
@@ -454,13 +496,16 @@
 							'귀여운 외모와는 달리 참을성이 없고 공격적인 성격을 가지고 있습니다. 지능이 높은 편이나, 고집이 세고 야행성이 강해 훈련을 잘 받아들이지 않습니다.';
 					} else if ($('.image-title').text() == '2') {
 						resultMessage2 = '" 우리집 주인님 "';
-						resultMessage3 = '체구는 작지만 장군감 입니다. 본인이 작다는것을 잊은듯 하며, 가끔 큰 개와 싸우거나, 짖는 일이 많습니다.';
+						resultMessage3 =
+							'체구는 작지만 장군감 입니다. 본인이 작다는것을 잊은듯 하며, 가끔 큰 개와 싸우거나, 짖는 일이 많습니다.';
 					} else if ($('.image-title').text() == '3') {
 						resultMessage2 = '" 착각왕 "';
-						resultMessage3 = '주인이든 다른 강아지든 일단 덤비고 봅니다. 자기가 대형견으로 큰 착각을 하고 있기 때문에 세상에서 가장 쎄다고 생각합니다. 그래서 그런지 자기가 주인을 지켜준다고 생각을 하고 있어요.';
+						resultMessage3 =
+							'주인이든 다른 강아지든 일단 덤비고 봅니다. 자기가 대형견으로 큰 착각을 하고 있기 때문에 세상에서 가장 쎄다고 생각합니다. 그래서 그런지 자기가 주인을 지켜준다고 생각을 하고 있어요.';
 					} else if ($('.image-title').text() == '4') {
 						resultMessage2 = '" 공주 "';
-						resultMessage3 = '공주님이 따로 없어요. 언제든 누구든 부려먹을 준비가 되어 있어요. 마음에 들지 않는게 있으면 바로 호통을 치니 눈치를 잘 살피고 기분을 잘 맞춰야 이쁨 받는 주인이 될 수 있어요.';
+						resultMessage3 =
+							'공주님이 따로 없어요. 언제든 누구든 부려먹을 준비가 되어 있어요. 마음에 들지 않는게 있으면 바로 호통을 치니 눈치를 잘 살피고 기분을 잘 맞춰야 이쁨 받는 주인이 될 수 있어요.';
 					} else if ($('.image-title').text() == '5') {
 						resultMessage2 = '" 애교만점 멍아치 "';
 						resultMessage3 =
@@ -472,14 +517,17 @@
 						resultMessage3 =
 							'천사견이라고 불릴만큼 온순하고 주인을 잘 따릅니다. 충성심이 높고 영리해서 반려견으로 매우 적합하고 활발하고 사람과 노는 것을 좋아하기 때문에 주인과 함께 활동하는 시간이 필요합니다.';
 					} else if ($('.image-title').text() == '2') {
-						resultMessage2 =  '" 영리한 곱슬머리 "';
-						resultMessage3 = '머리가 아주 영리하여, 집사의 머리위에서 노는 경우가 많습니다. 잘못한 점을 모르는척 하기도하며, 골탕먹이기도 합니다.';
+						resultMessage2 = '" 영리한 곱슬머리 "';
+						resultMessage3 =
+							'머리가 아주 영리하여, 집사의 머리위에서 노는 경우가 많습니다. 잘못한 점을 모르는척 하기도하며, 골탕먹이기도 합니다.';
 					} else if ($('.image-title').text() == '3') {
 						resultMessage2 = '" 아인슈타인 "';
-						resultMessage3 = '어떻게 하면 자기가 관심을 받고 원하는 것을 얻는지 아주 잘 알고 있습니다. 한번씩 그 점을 악용해서 부당한 이득을 취하고 있어요. 귀엽다고 모른척 넘어가주지마세요! 버릇이 나빠지고 있어요.';
+						resultMessage3 =
+							'어떻게 하면 자기가 관심을 받고 원하는 것을 얻는지 아주 잘 알고 있습니다. 한번씩 그 점을 악용해서 부당한 이득을 취하고 있어요. 귀엽다고 모른척 넘어가주지마세요! 버릇이 나빠지고 있어요.';
 					} else if ($('.image-title').text() == '4') {
 						resultMessage2 = '" 베토벤 "';
-						resultMessage3 = '활발하게 움직이고 가만히 앉아서 음악 듣는 걸 즐겨해요. 클래식이든 K-pop이든 다 좋아요. 특히 EDM을 좋아해요.';
+						resultMessage3 =
+							'활발하게 움직이고 가만히 앉아서 음악 듣는 걸 즐겨해요. 클래식이든 K-pop이든 다 좋아요. 특히 EDM을 좋아해요.';
 					} else if ($('.image-title').text() == '5') {
 						resultMessage2 = '" 우아한 귀족 "';
 						resultMessage3 =
@@ -491,14 +539,17 @@
 						resultMessage3 =
 							'한 번 물면 놓지 않는 지독한 근성을 가지고 있습니다. 대담하고 용맹한 성격을 가지고 있으며 주인을 보호하려는 의지와 충성심이 매우 강합니다. 하지만, 배타적인 성격을 가지고 있어 주인 이외의 낯선 사람이나 동물들에게는 사나울 수 있습니다.';
 					} else if ($('.image-title').text() == '2') {
-						resultMessage2 =  '" 한명의 군인 "';
-						resultMessage3 = '충성심과 용기가 높고, 판단력이 빠릅니다. 또한 경비견으로써 아주 모범적입니다. ';
+						resultMessage2 = '" 한명의 군인 "';
+						resultMessage3 =
+							'충성심과 용기가 높고, 판단력이 빠릅니다. 또한 경비견으로써 아주 모범적입니다. ';
 					} else if ($('.image-title').text() == '3') {
 						resultMessage2 = '" 전당포 아저씨 "';
-						resultMessage3 = '주인밖에 모르며 주인이 좋아하는 것을 기억해두고 지켜줍니다. 자기의 휴식보다 주인과 한번이라도 더 보는 것을 소중히 생각합니다. 자주 놀아주세요.';
+						resultMessage3 =
+							'주인밖에 모르며 주인이 좋아하는 것을 기억해두고 지켜줍니다. 자기의 휴식보다 주인과 한번이라도 더 보는 것을 소중히 생각합니다. 자주 놀아주세요.';
 					} else if ($('.image-title').text() == '4') {
 						resultMessage2 = '"츤데레"';
-						resultMessage3 = '행동과 꼬리가 따로 놀아요. 얼굴은 근엄하지만 꼬리는 기분을 숨기지 못해요. 주인의 말은 잘 듣지 않지만 주인이 슬퍼하면 제일 많이 걱정해요. 웃는 모습만 보여주세요.';
+						resultMessage3 =
+							'행동과 꼬리가 따로 놀아요. 얼굴은 근엄하지만 꼬리는 기분을 숨기지 못해요. 주인의 말은 잘 듣지 않지만 주인이 슬퍼하면 제일 많이 걱정해요. 웃는 모습만 보여주세요.';
 					} else if ($('.image-title').text() == '5') {
 						resultMessage2 = '" 든든한 보디가드 "';
 						resultMessage3 =
@@ -511,13 +562,16 @@
 							'활발하고 놀기를 좋아하며 애교가 많습니다. 눈치가 빨라 주인의 마음을 민감하게 감지하는 편입니다. 적응력이 뛰어나서 새로운 환경에도 금방 적응하고 사교성이 높아 처음보는 사람도 자신의 친구로 생각합니다. ';
 					} else if ($('.image-title').text() == '2') {
 						resultMessage2 = '" 한마디로 인형 "';
-						resultMessage3 = '질투심이 강하고, 대체적으로 자기 방어성향을 띕니다. 작은 아이들에게는 종종 달려들기도하니 어릴때부터 교육을 꼭! 해줘야 합니다.';
+						resultMessage3 =
+							'질투심이 강하고, 대체적으로 자기 방어성향을 띕니다. 작은 아이들에게는 종종 달려들기도하니 어릴때부터 교육을 꼭! 해줘야 합니다.';
 					} else if ($('.image-title').text() == '3') {
 						resultMessage2 = '" 귀여운 요물 "';
-						resultMessage3 = '자기가 귀여운걸 너무 잘 아는 스타일. 잘못을 했을 때에도 어떻게하면 덜 혼나는지 잘 알고 대처해요. 혼낼때는 단호하게 혼을 내야해요. 특히 주인의 머리카락을 좋아해요.';
+						resultMessage3 =
+							'자기가 귀여운걸 너무 잘 아는 스타일. 잘못을 했을 때에도 어떻게하면 덜 혼나는지 잘 알고 대처해요. 혼낼때는 단호하게 혼을 내야해요. 특히 주인의 머리카락을 좋아해요.';
 					} else if ($('.image-title').text() == '4') {
 						resultMessage2 = '" 독고다이 "';
-						resultMessage3 = '세상이 어떻게 돌아가는지 관심이 없어요. 주인이 뭘하던 신경도 쓰지 않아요. 내 배만 채우고 나만 즐거우면 되는 이기주의 끝판왕!!';
+						resultMessage3 =
+							'세상이 어떻게 돌아가는지 관심이 없어요. 주인이 뭘하던 신경도 쓰지 않아요. 내 배만 채우고 나만 즐거우면 되는 이기주의 끝판왕!!';
 					} else if ($('.image-title').text() == '5') {
 						resultMessage2 = '" 모두가 내 친구 "';
 						resultMessage3 =
@@ -530,13 +584,16 @@
 							'누군가 자신을 괴롭히더라도 99번까지는 봐줄 만큼 인내심이 좋으며 대체로 온화한 성격을 가지고 있습니다. 특별한 훈련기술 없이 어렵지 않게 가르칠 수 있으며, 사회성 또한 탁월 합니다. 집에 몰래 들어오는 도둑한테도 좋다고 꼬리를 흔들지도 모릅니다.';
 					} else if ($('.image-title').text() == '2') {
 						resultMessage2 = '" 하늘에서 내려온 천사 "';
-						resultMessage3 = '맹인견으로 활약하는 등 천사로서의 면모를 보여줍니다. 하지만 생후 2년 정도 지랄견의 면모를 보여줍니다.';
+						resultMessage3 =
+							'맹인견으로 활약하는 등 천사로서의 면모를 보여줍니다. 하지만 생후 2년 정도 지랄견의 면모를 보여줍니다.';
 					} else if ($('.image-title').text() == '3') {
 						resultMessage2 = '" 태릉견 "';
-						resultMessage3 = '세상 순한 얼굴을 가지고 있지만, 엄청난 활동량을 숨기고 있어요. 주인이 없을땐 집안 구석구석을 탐험해요. 실수를하면 천사 가면을 쓰고 연기를 해요...!';
+						resultMessage3 =
+							'세상 순한 얼굴을 가지고 있지만, 엄청난 활동량을 숨기고 있어요. 주인이 없을땐 집안 구석구석을 탐험해요. 실수를하면 천사 가면을 쓰고 연기를 해요...!';
 					} else if ($('.image-title').text() == '4') {
 						resultMessage2 = '" 짱구 "';
-						resultMessage3 = '천방지축 어리둥절 빙글빙글 돌아가는 집을 좋아해요. 언제든지 집을 난장판으로 만들 자신이 있어요. 천사견이란 타이틀과 아이는 맞지 않아요...';
+						resultMessage3 =
+							'천방지축 어리둥절 빙글빙글 돌아가는 집을 좋아해요. 언제든지 집을 난장판으로 만들 자신이 있어요. 천사견이란 타이틀과 아이는 맞지 않아요...';
 					} else if ($('.image-title').text() == '5') {
 						resultMessage2 = '" 천진난만 애교쟁이 "';
 						resultMessage3 =
@@ -549,13 +606,16 @@
 							'활기차고 순종적인 성격을 가지고 있으며, 영리하고 장난끼가 많습니다. 선천적으로 예민한 편이나 적응력이 높은편이라 금방 잘 어울립니다. 대담하고 가족들을 지키고 보호하려는 역할을 하려는 기질이 있습니다. ';
 					} else if ($('.image-title').text() == '2') {
 						resultMessage2 = '" 늑대인듯 늑대아닌 늑대같은 너 "';
-						resultMessage3 = '총명하고 용감한 성격을 가지고 있으며, 경계심이 강한편 실내견으로 자란 아이들의 경우 바깥 소음에 적응훈련을 해주는걸 추천합니다. 다소 영악한 편 입니다.';
+						resultMessage3 =
+							'총명하고 용감한 성격을 가지고 있으며, 경계심이 강한편 실내견으로 자란 아이들의 경우 바깥 소음에 적응훈련을 해주는걸 추천합니다. 다소 영악한 편 입니다.';
 					} else if ($('.image-title').text() == '3') {
 						resultMessage2 = '" 척척박사 "';
-						resultMessage3 = '용감한척, 귀여운척, 자는척 척을 잘해요. 다른 강아지를 만나면 쎈척을. 실수했을땐 귀여운척을, 주인이 귀찮게하면 자는척을 해요. 내버려두세요...';
+						resultMessage3 =
+							'용감한척, 귀여운척, 자는척 척을 잘해요. 다른 강아지를 만나면 쎈척을. 실수했을땐 귀여운척을, 주인이 귀찮게하면 자는척을 해요. 내버려두세요...';
 					} else if ($('.image-title').text() == '4') {
 						resultMessage2 = '" 테러리스트 "';
-						resultMessage3 = '평소에 잠잠하다 한번씩 테러를 합니다. 평상시엔 주인의 행동을 파악하고 주인의 치명적인 약점을 찾아 공격합니다. 자주 쓰는 물건은 꼭 닿지 않는 곳에 보관하는 습관을 키우세요!!';
+						resultMessage3 =
+							'평소에 잠잠하다 한번씩 테러를 합니다. 평상시엔 주인의 행동을 파악하고 주인의 치명적인 약점을 찾아 공격합니다. 자주 쓰는 물건은 꼭 닿지 않는 곳에 보관하는 습관을 키우세요!!';
 					} else if ($('.image-title').text() == '5') {
 						resultMessage2 = '" 순백의 미소천사 "';
 						resultMessage3 =
@@ -568,13 +628,16 @@
 							'대담하고 고집이 셉니다.  주인에게만 복종하고 충성심이 강하기 때문에 주인외에 다른사람에게는 공격성을 보이기도 합니다. 독립성이 강한편이라 다른견종보다 애교가 없는편이며, 리액션이 많고, 표정이 다양합니다.';
 					} else if ($('.image-title').text() == '2') {
 						resultMessage2 = '" 시바 그냥 시바 "';
-						resultMessage3 = '고집이 세고, 자립심이 높아 훈련이 어려운 편 입니다. 하지만 훈련 보상이 확실하다면, 교육 효과가 높습니다. 외부 소음에 민감한 편이기도하며, 친구들과 놀때 유독 앙앙 거리는 편입니다.';
+						resultMessage3 =
+							'고집이 세고, 자립심이 높아 훈련이 어려운 편 입니다. 하지만 훈련 보상이 확실하다면, 교육 효과가 높습니다. 외부 소음에 민감한 편이기도하며, 친구들과 놀때 유독 앙앙 거리는 편입니다.';
 					} else if ($('.image-title').text() == '3') {
 						resultMessage2 = '" 엄살왕 "';
-						resultMessage3 = '자기가 세상 최고 근엄한 줄 알아요. 귀여워하는걸 싫어하고 방치 당하는걸 좋아해요. 엄살이 심해서 목욕이나 발톱을 깍으면 사람들이 학대하는줄 착각해요.... ';
+						resultMessage3 =
+							'자기가 세상 최고 근엄한 줄 알아요. 귀여워하는걸 싫어하고 방치 당하는걸 좋아해요. 엄살이 심해서 목욕이나 발톱을 깍으면 사람들이 학대하는줄 착각해요.... ';
 					} else if ($('.image-title').text() == '4') {
 						resultMessage2 = '" 이기주의자 "';
-						resultMessage3 = '이기주의 끝판왕입니다. 아쉬울게 없으면 절대 말을 듣지 않고 불러도 오지 않아요. 간식과 산책만이 이기주의를 부술 수 있습니다.';
+						resultMessage3 =
+							'이기주의 끝판왕입니다. 아쉬울게 없으면 절대 말을 듣지 않고 불러도 오지 않아요. 간식과 산책만이 이기주의를 부술 수 있습니다.';
 					} else if ($('.image-title').text() == '5') {
 						resultMessage2 = '" 우당탕탕 개너자이저 "';
 						resultMessage3 =
@@ -587,13 +650,16 @@
 							'모든 견종 중에서 가장 온순한 편입니다. 공격성이 없고 잘 짖지 않으며 천하태평 느긋한 성격으로 사람과 잘 어울리고 사교적입니다. 식탐이 강하고 운동량이 적은편이라 비만이 되기 쉬우므로 어렸을때부터 관리가 필요합니다.';
 					} else if ($('.image-title').text() == '2') {
 						resultMessage2 = '" 식탐대마왕 "';
-						resultMessage3 =  '온순하고 정이 많습니다. 넉살좋게 모든 사람과 친하게 지내며 간식을 준다면 영혼까지 바칩니다.';
+						resultMessage3 =
+							'온순하고 정이 많습니다. 넉살좋게 모든 사람과 친하게 지내며 간식을 준다면 영혼까지 바칩니다.';
 					} else if ($('.image-title').text() == '3') {
 						resultMessage2 = '" 동네형 "';
-						resultMessage3 = '주인이 뭘하던 다른 강아지가 뭘하던 별로 신경을 안써요. 세상만사 다 귀찮고 그냥 혼자만의 세상이에요. 새로운 장난감을 자주 사주는 것을 좋아해요';
+						resultMessage3 =
+							'주인이 뭘하던 다른 강아지가 뭘하던 별로 신경을 안써요. 세상만사 다 귀찮고 그냥 혼자만의 세상이에요. 새로운 장난감을 자주 사주는 것을 좋아해요';
 					} else if ($('.image-title').text() == '4') {
 						resultMessage2 = '" 왕 "';
-						resultMessage3 = '시키는걸 좋아해요. 해달라는대로 해주면 당연하게 생각하고 해주지않으면 좌천을 당할 수도 있어요...좌천당하지 않으려면 뇌물을 바쳐야해요..'
+						resultMessage3 =
+							'시키는걸 좋아해요. 해달라는대로 해주면 당연하게 생각하고 해주지않으면 좌천을 당할 수도 있어요...좌천당하지 않으려면 뇌물을 바쳐야해요..';
 					} else if ($('.image-title').text() == '5') {
 						resultMessage2 = '" 천하태평 먹보대왕 "';
 						resultMessage3 =
@@ -606,13 +672,16 @@
 							'사람을 좋아하는 성격을 가지고 있습니다. 때로는 자신의 보호자보다 외부인을 더 좋아하기도 합니다. 충성심은 높은편에 속하고, 질투심이 매우 강하여 질투심을 느끼는 대상에게 덤벼들기도 합니다. 고집이 센 편이며 일부로 불쌍한 표정을 지어 원하는 것을 얻어갈만큼 영리합니다.';
 					} else if ($('.image-title').text() == '2') {
 						resultMessage2 = '" 우당탕탕 대마왕 "';
-						resultMessage3 = '목양견으로 쓰였을정도로 영리하며 활동성을 지니고있습니다. 하루의 에너지를 다 쓰지못한다면 쉽게 비만이 됙는 편이니 산책을 꼭! 시켜주세요';
+						resultMessage3 =
+							'목양견으로 쓰였을정도로 영리하며 활동성을 지니고있습니다. 하루의 에너지를 다 쓰지못한다면 쉽게 비만이 되는 편이니 산책을 꼭! 시켜주세요';
 					} else if ($('.image-title').text() == '3') {
 						resultMessage2 = '" 제빵견 "';
-						resultMessage3 = '사람에게는 별로 관심이 없어요. 다른 강아지를 보면 격하게 친해지고 싶어하지만 대부분 퇴짜를 맞고 마음의 상처가 깊어요ㅠ...그래서 집에와서 항상 식빵을 굽고 있습니다. 간식으로 기분을 풀어주세요...!';
+						resultMessage3 =
+							'사람에게는 별로 관심이 없어요. 다른 강아지를 보면 격하게 친해지고 싶어하지만 대부분 퇴짜를 맞고 마음의 상처가 깊어요ㅠ...그래서 집에와서 항상 식빵을 굽고 있습니다. 간식으로 기분을 풀어주세요...!';
 					} else if ($('.image-title').text() == '4') {
 						resultMessage2 = '" 에너자이저 "';
-						resultMessage3 = '남의 시선따윈 신경쓰지 않아요. 나만 에너지 넘치게 놀면 충분히 만족해요. 아주 단순하고 슬플 일이 잘 없어요. 지금처럼만 대해주세요.';
+						resultMessage3 =
+							'남의 시선따윈 신경쓰지 않아요. 나만 에너지 넘치게 놀면 충분히 만족해요. 아주 단순하고 슬플 일이 잘 없어요. 지금처럼만 대해주세요.';
 					} else if ($('.image-title').text() == '5') {
 						resultMessage2 = '" 내가 바로 골목대장 "';
 						resultMessage3 =
@@ -625,13 +694,16 @@
 							'똑똑하고 사랑스러운 가족이 될 수 있는 훌륭한 자질을 가지고 있습니다. 주인을 잘 따르고 가끔은 사납게 짖으며 집을 잘 지키기도 합니다. 하지만 고집이 세고 영악한 부분이 있어서 자칫 집안의 버릇없는 공주나 왕자가 될 수 있으므로 주의해야 합니다. 외로움을 심하게 타는 편이라 주인과 떨어져 있기 싫어하고 주인에 대한 소유욕이 크고 질투심도 강한 편 입니다. 집안에 어린아이가 있을 경우 질투심을 더 심하게 느끼기도 합니다.';
 					} else if ($('.image-title').text() == '2') {
 						resultMessage2 = '" 행동대장 "';
-						resultMessage3 = '작은 몸집과 다르게, 대담하며 독립심이 강한 편 입니다. 또한 용맹스러운 모습을 보여주기도 하는데, 보는이로부터 아찔한 순간들이 생기기도 합니다.';
+						resultMessage3 =
+							'작은 몸집과 다르게, 대담하며 독립심이 강한 편 입니다. 또한 용맹스러운 모습을 보여주기도 하는데, 보는이로부터 아찔한 순간들이 생기기도 합니다.';
 					} else if ($('.image-title').text() == '3') {
 						resultMessage2 = '" 귀족 "';
-						resultMessage3 = '세상에서 자기가 가장 이쁘다고 생각하고 있어요. 이쁨받으려 움직임 하나하나 신경써서 행동해요. 주인이 관심을 가져주지 않으면 관심을 받으려고 예상외의 행동을 해서 큰 웃음을 줍니다. 간식보다 주인의 손길을 더 기다리고 있어요.';
+						resultMessage3 =
+							'세상에서 자기가 가장 이쁘다고 생각하고 있어요. 이쁨받으려 움직임 하나하나 신경써서 행동해요. 주인이 관심을 가져주지 않으면 관심을 받으려고 예상외의 행동을 해서 큰 웃음을 줍니다. 간식보다 주인의 손길을 더 기다리고 있어요.';
 					} else if ($('.image-title').text() == '4') {
 						resultMessage2 = '" 유튜버 "';
-						resultMessage3 = '관심을 많이 받고 싶어해요. 카메라 의식을 많이 해요. 주인이 만족할 인스타그램용 사진이 어떻게 하면 잘나오는지 알아요. 이쁜 모습을 보여주려고 나름대로 많은 노력을 합니다. ';
+						resultMessage3 =
+							'관심을 많이 받고 싶어해요. 카메라 의식을 많이 해요. 주인이 만족할 인스타그램용 사진이 어떻게 하면 잘나오는지 알아요. 이쁜 모습을 보여주려고 나름대로 많은 노력을 합니다. ';
 					} else if ($('.image-title').text() == '5') {
 						resultMessage2 = '" 새침대기 요조숙녀 "';
 						resultMessage3 =
@@ -744,6 +816,25 @@
 					}
 				}
 			}
+$('#stickyContainer').show()
+			let closeForm = function () {
+				let popup = document.getElementById('stickyContainer');
+				let open = true;
+
+				popup.style.display = 'block';
+
+				if (open == true) {
+					popup.style.display = 'none';
+					open = false;
+				}
+			};
 		</script>
+
+		<div id="stickyContainer" class="sticky-container" style="display:None">
+			<a id="closeBtn" onclick="closeForm()" href="javascript:void();"
+			   ><i class="fa fa-times"></i><span style="font-size:2rem;">X</span></a
+			>
+			<a href="https://coupa.ng/bOyiAk" target="_blank" referrerpolicy="unsafe-url"><img src="https://ads-partners.coupang.com/banners/393127?subId=&traceId=V0-301-879dd1202e5c73b2-I393127&w=200&h=200" alt=""></a>
+		</div>
 	</body>
 </html>
